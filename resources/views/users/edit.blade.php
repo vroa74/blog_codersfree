@@ -150,10 +150,12 @@
 
                         <!-- Botones -->
                         <div class="flex items-center justify-end mt-4">
-                            <a href="{{ route('users.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">
+                            <a href="{{ route('users.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2 inline-flex items-center">
+                                <i class="ri-close-line mr-2"></i>
                                 Cancelar
                             </a>
-                            <x-button class="bg-indigo-600 hover:bg-indigo-700">
+                            <x-button class="bg-indigo-600 hover:bg-indigo-700 inline-flex items-center">
+                                <i class="ri-save-line mr-2"></i>
                                 {{ __('Actualizar Usuario') }}
                             </x-button>
                         </div>

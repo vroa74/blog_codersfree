@@ -69,17 +69,52 @@
                 <p class="text-sm mt-2">
                     {{ __('Your email address is unverified.') }}
 
-                    <button type="button" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" wire:click.prevent="sendEmailVerification">
+                    <button type="button" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" wire:click.prevent="sendEmailVerification">
                         {{ __('Click here to re-send the verification email.') }}
                     </button>
                 </p>
 
                 @if ($this->verificationLinkSent)
-                    <p class="mt-2 font-medium text-sm text-green-600">
+                    <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
                         {{ __('A new verification link has been sent to your email address.') }}
                     </p>
                 @endif
             @endif
+        </div>
+
+        <!-- RFC -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="rfc" value="{{ __('RFC') }}" />
+            <x-input id="rfc" type="text" class="mt-1 block w-full" wire:model="state.rfc" maxlength="14" placeholder="RFC (opcional)" />
+            <x-input-error for="rfc" class="mt-2" />
+        </div>
+
+        <!-- CURP -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="curp" value="{{ __('CURP') }}" />
+            <x-input id="curp" type="text" class="mt-1 block w-full" wire:model="state.curp" maxlength="22" placeholder="CURP (opcional)" />
+            <x-input-error for="curp" class="mt-2" />
+        </div>
+
+        <!-- Sexo -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="sexo" value="{{ __('Sexo') }}" />
+            <select id="sexo" wire:model="state.sexo" class="mt-1 block w-full border-gray-300 dark:border-gray-600 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+                <option value="">{{ __('Seleccionar sexo (opcional)') }}</option>
+                <option value="m">{{ __('Masculino') }}</option>
+                <option value="f">{{ __('Femenino') }}</option>
+            </select>
+            <x-input-error for="sexo" class="mt-2" />
+        </div>
+
+        <!-- Tema -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="theme" value="{{ __('Tema') }}" />
+            <select id="theme" wire:model="state.theme" class="mt-1 block w-full border-gray-300 dark:border-gray-600 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+                <option value="dark">{{ __('Oscuro') }}</option>
+                <option value="light">{{ __('Claro') }}</option>
+            </select>
+            <x-input-error for="theme" class="mt-2" />
         </div>
     </x-slot>
 

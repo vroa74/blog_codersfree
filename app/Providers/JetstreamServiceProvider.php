@@ -22,6 +22,7 @@ class JetstreamServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configurePermissions();
+        $this->configureProfilePhotos();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
     }
@@ -39,5 +40,16 @@ class JetstreamServiceProvider extends ServiceProvider
             'update',
             'delete',
         ]);
+    }
+
+    /**
+     * Configure profile photo storage.
+     */
+    protected function configureProfilePhotos(): void
+    {
+        // Asegurar que el directorio fotos existe
+        if (!file_exists(public_path('fotos'))) {
+            mkdir(public_path('fotos'), 0755, true);
+        }
     }
 }

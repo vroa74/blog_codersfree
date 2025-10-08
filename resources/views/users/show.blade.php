@@ -11,17 +11,20 @@
                 <div class="p-6">
                     <!-- Botones de acción -->
                     <div class="mb-6 flex justify-between items-center">
-                        <a href="{{ route('users.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                            ← Volver a la Lista
+                        <a href="{{ route('users.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                            <i class="ri-arrow-left-line mr-2"></i>
+                            Volver a la Lista
                         </a>
                         <div class="flex space-x-2">
-                            <a href="{{ route('users.edit', $user) }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                            <a href="{{ route('users.edit', $user) }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                                <i class="ri-edit-line mr-2"></i>
                                 Editar Usuario
                             </a>
-                            <form action="{{ route('users.destroy', $user) }}" method="POST" class="inline" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?')">
+                            <form action="{{ route('users.destroy', $user) }}" method="POST" class="inline" onsubmit="confirmDelete(event)">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                                    <i class="ri-delete-bin-line mr-2"></i>
                                     Eliminar Usuario
                                 </button>
                             </form>
@@ -179,4 +182,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function confirmDelete(event) {
+            event.preventDefault();
+            const form = event.target.closest('form');
+            
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡No podrás revertir esta acción!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#6b7280',
+                confirmButtonText: 'Sí, eliminar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        }
+    </script>
 </x-app-layout>

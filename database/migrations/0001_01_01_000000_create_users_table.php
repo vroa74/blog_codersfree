@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('puesto', 70)->nullable(); // Puesto o cargo del usuario, no aparece en la creacion del usuario ni el el profile
             $table->boolean('estatus')->default(false); // Estado activo/inactivo del usuario  no aparece en la creacion del usuario ni el el profile
             $table->enum('theme', ['dark', 'light'])->default('dark'); // Tema del usuario: dark o light
-
             
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
