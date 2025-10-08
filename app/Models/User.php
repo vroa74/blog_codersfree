@@ -29,6 +29,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rfc',
+        'curp',
+        'sexo',
+        'nivel',
+        'puesto',
+        'estatus',
+        'theme',
     ];
 
     /**
@@ -62,6 +69,8 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'estatus' => 'boolean',
+            'nivel' => 'integer',
         ];
     }
 }

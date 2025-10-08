@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\QrController;
+use App\Http\Controllers\UserController;
 
     Route::get('/', function () {
         return view('welcome');
@@ -27,4 +28,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    
+    // Rutas para usuarios (solo usuarios autenticados)
+    Route::resource('users', UserController::class);
 });
