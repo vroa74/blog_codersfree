@@ -1,0 +1,1 @@
+en este proyecto generate un controlador que se llame post controller que tenga todos los resource y genera las 7 rutas manuales y  ademas la ruta atraves de resource por favor
