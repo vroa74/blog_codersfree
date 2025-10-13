@@ -11,7 +11,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        
+      return view('posts.index');  
     }
 
     /**
@@ -35,7 +35,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+           return view('posts.show', compact('id'));  
+   
     }
 
     /**
@@ -43,7 +44,8 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+           return view('posts.edit', compact('id'));  
+   
     }
 
     /**
@@ -59,6 +61,7 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+           return view('posts.delete', compact('id'));  
+   
     }
 }
