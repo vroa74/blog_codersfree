@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('post', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
-            $table->text('body');
+            $table->string('slug')->nullable()->unique();
+            $table->longText('body');
             $table->timestamps();
         });
-    }
+    } 
 
     /**
      * Reverse the migrations.
