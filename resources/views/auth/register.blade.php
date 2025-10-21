@@ -39,6 +39,11 @@
             </div>
 
             <div class="mt-4">
+                <x-label for="puesto" value="{{ __('Puesto/Cargo') }}" />
+                <x-input id="puesto" class="block mt-1 w-full" type="text" name="puesto" :value="old('puesto')" maxlength="70" placeholder="Puesto o cargo (opcional)" />
+            </div>
+
+            <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <div class="relative">
                     <x-input id="password" class="block mt-1 w-full pr-10" type="password" name="password" required autocomplete="new-password" />

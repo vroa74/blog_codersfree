@@ -26,6 +26,7 @@ class CreateNewUser implements CreatesNewUsers
             'rfc' => ['nullable', 'string', 'max:14'],
             'curp' => ['nullable', 'string', 'max:22'],
             'sexo' => ['nullable', 'in:f,m'],
+            'puesto' => ['nullable', 'string', 'max:70'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
@@ -36,6 +37,7 @@ class CreateNewUser implements CreatesNewUsers
             'rfc' => $input['rfc'] ?? null,
             'curp' => $input['curp'] ?? null,
             'sexo' => $input['sexo'] ?? null,
+            'puesto' => $input['puesto'] ?? null,
         ]);
     }
 }

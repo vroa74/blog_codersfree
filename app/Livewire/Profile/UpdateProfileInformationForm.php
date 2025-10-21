@@ -91,6 +91,7 @@ class UpdateProfileInformationForm extends Component
                 'rfc' => ['nullable', 'string', 'max:14'],
                 'curp' => ['nullable', 'string', 'max:22'],
                 'sexo' => ['nullable', 'in:f,m'],
+                'puesto' => ['nullable', 'string', 'max:70'],
                 'theme' => ['nullable', 'in:dark,light'],
             ])->validateWithBag('updateProfileInformation');
 
@@ -110,6 +111,7 @@ class UpdateProfileInformationForm extends Component
             'rfc' => $this->state['rfc'] ?? null,
             'curp' => $this->state['curp'] ?? null,
             'sexo' => $this->state['sexo'] ?? null,
+            'puesto' => $this->state['puesto'] ?? null,
             'theme' => $this->state['theme'] ?? 'dark',
         ])->save();
 
@@ -130,6 +132,7 @@ class UpdateProfileInformationForm extends Component
             'rfc' => $this->state['rfc'] ?? null,
             'curp' => $this->state['curp'] ?? null,
             'sexo' => $this->state['sexo'] ?? null,
+            'puesto' => $this->state['puesto'] ?? null,
             'theme' => $this->state['theme'] ?? 'dark',
         ])->save();
 

@@ -107,6 +107,13 @@
             <x-input-error for="sexo" class="mt-2" />
         </div>
 
+        <!-- Puesto -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="puesto" value="{{ __('Puesto/Cargo') }}" />
+            <x-input id="puesto" type="text" class="mt-1 block w-full" wire:model="state.puesto" maxlength="70" placeholder="Puesto o cargo (opcional)" />
+            <x-input-error for="puesto" class="mt-2" />
+        </div>
+
         <!-- Tema -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="theme" value="{{ __('Tema') }}" />
